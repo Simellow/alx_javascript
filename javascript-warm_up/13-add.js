@@ -1,7 +1,7 @@
 #!/usr/bin/node
 //a function that returns the addition of 2 integers
 
-let add = (a, b) => a + b
+const add = (a, b) => a + b
 
 //can also be written as
 // function add(a, b) {
