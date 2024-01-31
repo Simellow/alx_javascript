@@ -3,7 +3,9 @@
 
 exports.add = (a, b) => a + b
 
-//can also be written as
+// can also be written as
 // function add(a, b) {
 //     return a + b;
 //   }
+
+// console.log(add(3, 5));
