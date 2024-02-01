@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// import Rectangle from './4-rectangle.js';
+// import Rectangle from './4-rectangle.js';...shouldn't we be using new syntax though? 
 const Rectangle = require('./4-rectangle');
 
 class Square extends Rectangle {
