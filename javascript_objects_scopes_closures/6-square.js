@@ -3,19 +3,15 @@
 const BaseSquare = require('./5-square');
 
 class Square extends BaseSquare {
-    constructor(size) {
-        super(size); // Call the constructor of the parent class (BaseSquare)
-    }
-
     charPrint(c) {
-        // If c is undefined, use 'X'; otherwise, use the provided character
-        const charToPrint = c || 'X';
-
-        // Print the square using the specified character
+        if (c === undefined) {
+            this.print();
+          } else {
         for (let i = 0; i < this.size; i++) {
             console.log(charToPrint.repeat(this.size));
         }
     }
+}
 }
 
 
