@@ -2,7 +2,8 @@
 //writing a class Rectangle that defines a rectangle
 class Rectangle {
     constructor (w, h){
-        if (w || h <= 0) {
+        if (w <= 0 || h <= 0) {
+            // Create an empty object if w or h is not positive
             return {};
         }
         this.width = w;
