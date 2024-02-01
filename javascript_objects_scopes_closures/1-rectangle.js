@@ -1,4 +1,4 @@
-//writing a class Rectangle that defines a rectangle
+//writing a class Rectangle that defines a rectangle with instance attributes width and height
 class Rectangle {
     constructor (w, h){
         this.width = w;
