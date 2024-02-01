@@ -2,10 +2,10 @@
 //writing a class Rectangle that defines a rectangle
 class Rectangle {
     constructor (w, h){
-        this.width = w;
-        this.height = h;
         if (w && h > 0){
         }
+        this.width = w;
+        this.height = h;
     }
 }
 
