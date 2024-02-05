@@ -15,17 +15,14 @@ request(apiUrl, (error, response, body) => {
     if (error) {
         console.error('Error:', error.message);
     } else {
-        try {
             const filmsData = JSON.parse(body);
             const matchingFilms = filmsData.results.filter(film =>
                 film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
             );
             console.log(`${matchingFilms.length}`);
-        } catch (parseError) {
-            console.error('Error parsing response:', parseError.message);
-        }
-    }
-});
+         }
+       
+     });
 
 
 
