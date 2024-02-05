@@ -8,12 +8,12 @@ const movieID = process.argv[2];
 const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieID}`;
 
 request(apiUrl, (error, response, body) => { //Inside this callback function, we have access to the response object, which contains information about the HTTP response
-    
+
     //Inside the callback, we check if there’s an error. If so, we log an error message
     if (error) {
         console.error('Error:', error.message);
 
-    //Otherwise, we parse the response data using JSON.parse(body) and console,log the title 
+    //Otherwise, we parse the response data using JSON.parse(body) and console.log the title 
     } else {
             const movieInfo = JSON.parse(body);
             console.log(`${movieInfo.title}`);
