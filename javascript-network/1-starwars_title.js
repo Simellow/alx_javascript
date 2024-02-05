@@ -7,7 +7,7 @@ const movieID = process.argv[2];
 //We create the complete API URL by appending the movie ID to the base URL (https://swapi-api.alx-tools.com/api/films/:id)
 const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieID}`;
 
-request(apiUrl, (error, body) => {
+request(apiUrl, (error, response, body) => {
     //Inside the callback, we check if there’s an error. If so, we log an error message
     if (error) {
         console.error('Error:', error.message);
