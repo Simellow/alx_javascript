@@ -4,6 +4,9 @@ const request = require('request'); //importing the requst module
 // Star Wars API URL
 const apiUrl = `https://swapi-api.alx-tools.com/api/films/`;
 
+//Wedge Antilles is character ID 18 so we define a variable with the character's ID
+const characterId = 18;
+
 request (apiUrl, (error, response, body) =>{
      
     //Inside the callback, we check if there’s an error. If so, we log an error message
