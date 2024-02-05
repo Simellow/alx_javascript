@@ -17,14 +17,13 @@ request(apiUrl, (error, response, body) => {
     } else {
             const filmsData = JSON.parse(body);
             const matchingFilms = filmsData.results.filter(film =>
-                film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
+                film.characters.includes(`${characterId}/`)
             );
             console.log(`${matchingFilms.length}`);
          }
-       
      });
 
-
+     //https://swapi-api.alx-tools.com/api/people/18/
 
 
 
