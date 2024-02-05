@@ -2,7 +2,7 @@
 const request = require('request'); //importing the requst module 
 
 const film = process.argv[2]; 
-const apiUrl = `https://swapi-api.alx-tools.com/api/films/${film}`;
+const apiUrl = `https://swapi-api.alx-tools.com/api/${film}`;
 
 // API URL for Star Wars films
 // const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
