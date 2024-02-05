@@ -1,12 +1,11 @@
 #!/usr/bin/node
 const request = require('request'); //importing the requst module 
 
-//We retrieve the URL to request from the command line arguments using process.argv[2]. Process.argv[2] specifically contains the URL we want to fetch. 
-//side note process.argv[0] is the path to the Node.js executable, and process.argv[1] is the path to the script itself.
+//We retrieve the URL to request from the command line arguments using process.argv[2]. 
 const urlToRequest = process.argv[2]; 
 
-
 //We use the request() function to make a GET request to the specified URL
+//within the request() functinon, we have an anonymous callback function with parameters error and response
 request(urlToRequest, (error, response) => {
     //If there’s an error, we log an error message using console.error('Error:', error.message)
     if (error) {
