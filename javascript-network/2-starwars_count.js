@@ -1,26 +1,23 @@
 #!/usr/bin/node
 const request = require('request'); //importing the requst module 
 
-// Star Wars API URL
-const apiUrl = `https://swapi-api.alx-tools.com/api/films/`;
+// API URL for Star Wars films
+const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
 
-//Wedge Antilles is character ID 18 so we define a variable with the character's ID
+// Character ID for Wedge Antilles
 const characterId = 18;
 
-request (apiUrl, (error, response, body) =>{
-     
-    //Inside the callback, we check if there’s an error. If so, we log an error message
+// Make a GET request to the API
+request(apiUrl, (error, response, body) => {
     if (error) {
         console.error('Error:', error.message);
-    
-    //
     } else {
         try {
-            const moviesInfo = JSON.parse(body);
-            const moviesWithWedge = moviesInfo.results.filter(film =>
+            const filmsData = JSON.parse(body);
+            const matchingFilms = filmsData.results.filter(film =>
                 film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
             );
-            console.log(`${moviesWithWedge.length}`);
+            console.log(`Number of movies with Wedge Antilles: ${matchingFilms.length}`);
         } catch (parseError) {
             console.error('Error parsing response:', parseError.message);
         }
