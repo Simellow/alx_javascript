@@ -17,7 +17,7 @@ request(apiUrl, (error, response, body) => {
     } else {
             const filmsData = JSON.parse(body);
             const matchingFilms = filmsData.results.filter(film =>
-                film.characters.includes(`${characterId}/`)
+                film.characters.includes(`${characterId}`)
             );
             console.log(`${matchingFilms.length}`);
          }
