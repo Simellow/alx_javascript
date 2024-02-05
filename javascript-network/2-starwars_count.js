@@ -1,11 +1,11 @@
 #!/usr/bin/node
 const request = require('request'); //importing the requst module 
 
-const film = process.argv[2]; 
-const apiUrl = `https://swapi-api.alx-tools.com/api/${film}`;
+// const film = process.argv[2]; 
+// const apiUrl = `https://swapi-api.alx-tools.com/api/${film}`;
 
-// API URL for Star Wars films
-// const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
+//API URL for Star Wars films
+const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
 
 // Character ID for Wedge Antilles
 const characterId = 18;
