@@ -1,8 +1,11 @@
 #!/usr/bin/node
 const request = require('request'); //importing the requst module 
 
+const film = process.argv[2]; 
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${film}`;
+
 // API URL for Star Wars films
-const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
+// const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
 
 // Character ID for Wedge Antilles
 const characterId = 18;
@@ -17,7 +20,7 @@ request(apiUrl, (error, response, body) => {
             const matchingFilms = filmsData.results.filter(film =>
                 film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
             );
-            console.log(`Number of movies with Wedge Antilles: ${matchingFilms.length}`);
+            console.log(`${matchingFilms.length}`);
         } catch (parseError) {
             console.error('Error parsing response:', parseError.message);
         }
