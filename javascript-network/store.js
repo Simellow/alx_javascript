@@ -18,7 +18,13 @@ request(apiUrl, (error, response, body) => {
         console.error('Error:', error.message);
     //Otherwise, we parse the response data using JSON.parse(body). JSON.parse() is used to parse (or convert) a JSON string into a JavaScript object
     } else {
+        try {
             const movieInfo = JSON.parse(body);
             console.log(`${movieInfo.title}`);
+        //In the code snippet, parseError is a variable representing an error that occurs during parsing (specifically, when trying to parse the response data as JSON).
+        } catch (parseError) {
+            // The .message property is a standard property available on JavaScript Error objects. When an error occurs (such as a parse error), the message property contains a human-readable description of the error.
+            console.error('Error parsing response:', parseError.message);
+        }
     }
 });
