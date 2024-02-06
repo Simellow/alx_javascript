@@ -1,14 +1,11 @@
 #!/usr/bin/node
 const request = require('request'); //importing the requst module 
 
-// const film = process.argv[2]; 
-// const apiUrl = `https://swapi-api.alx-tools.com/api/${film}`;
-
 //API URL for Star Wars films
 const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
 
 // Character ID for Wedge Antilles
-const characterId = 18;
+const id = 18;
 
 // Make a GET request to the API
 request(apiUrl, (error, response, body) => {
@@ -17,7 +14,7 @@ request(apiUrl, (error, response, body) => {
     } else {
             const filmsData = JSON.parse(body);
             const matchingFilms = filmsData.results.filter(film =>
-                film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
+                film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`)
             );
             console.log(`${matchingFilms.length}`);
          }
