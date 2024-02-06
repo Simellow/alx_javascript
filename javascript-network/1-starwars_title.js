@@ -13,6 +13,9 @@ request(apiUrl, (error, response, body) => { //Inside this callback function, we
     if (error) {
         console.error('Error:', error.message);
 
+    } else if (response) {
+        console.log(`code: ${response.statusCode}`);
+        
     //Otherwise, we parse the response data using JSON.parse(body) and console.log the title 
     } else {
             const movieInfo = JSON.parse(body);

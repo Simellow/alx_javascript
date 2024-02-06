@@ -10,7 +10,7 @@ request(urlToRequest, (error, response) => {
     //If there’s an error, we log an error message using console.error('Error:', error.message)
     if (error) {
         console.error('Error:', error.message);
-    //Else we log the status code of the response using console.log(code: ${response.statusCode}).
+    //Else we log the status code of the response 
     } else {
         console.log(`code: ${response.statusCode}`);
     }
