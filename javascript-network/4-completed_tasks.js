@@ -1,14 +1,16 @@
 #!/usr/bin/node
 
 const request = require('request');
+
 const url = process.argv[2];
-request.get(url, function (err, response, body) {
-  if (err) {
-    console.log(err);
+
+request.get(url, function (error, response, body) {
+  if (error) {
+    console.error(error.message);
   } else {
-    const todos = JSON.parse(body);
+    const tasks = JSON.parse(body);
     const completed = {};
-    for (const x of todos) {
+    for (const x of tasks) {
       if (x.completed === true) {
         if (x.userId in completed) {
           completed[x.userId]++;
