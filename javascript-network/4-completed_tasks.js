@@ -1,17 +1,14 @@
 #!/usr/bin/node
+
 const request = require('request');
-
 const url = process.argv[2];
-
-request.get(url, function (error, response, body) {
-  
-    if (error) {
-    console.error(error.message);
-  
-} else {
-    const tasks = JSON.parse(body);
-    const completedtasks = {};
-    for (const x of tasks) {
+request.get(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else {
+    const todos = JSON.parse(body);
+    const completed = {};
+    for (const x of todos) {
       if (x.completed === true) {
         if (x.userId in completed) {
           completed[x.userId]++;
@@ -20,9 +17,10 @@ request.get(url, function (error, response, body) {
         }
       }
     }
-    console.log(completedtasks);
+    console.log(completed);
   }
 });
+
 
 // Write a script that computes the number of tasks completed by user id.
 
