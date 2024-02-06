@@ -1,50 +1,50 @@
-// #!/usr/bin/node
-// const request = require('request'); //importing the requst module 
+#!/usr/bin/node
+const request = require('request'); //importing the requst module 
 
-// // const film = process.argv[2]; 
-// // const apiUrl = `https://swapi-api.alx-tools.com/api/${film}`;
+// const film = process.argv[2]; 
+// const apiUrl = `https://swapi-api.alx-tools.com/api/${film}`;
 
-// //API URL for Star Wars films
-// const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
+//API URL for Star Wars films
+const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
 
-// // Character ID for Wedge Antilles
-// const characterId = 18;
+// Character ID for Wedge Antilles
+const characterId = 18;
 
-// // Make a GET request to the API
-// request(apiUrl, (error, response, body) => {
-//     if (error) {
-//         console.error('Error:', error.message);
-//     } else {
-//             const filmsData = JSON.parse(body);
-//             const matchingFilms = filmsData.results.filter(film =>
-//                 film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
-//             );
-//             console.log(`${matchingFilms.length}`);
-//          }
-//      });
+// Make a GET request to the API
+request(apiUrl, (error, response, body) => {
+    if (error) {
+        console.error('Error:', error.message);
+    } else {
+            const filmsData = JSON.parse(body);
+            const matchingFilms = filmsData.results.filter(film =>
+                film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
+            );
+            console.log(`${matchingFilms.length}`);
+         }
+     });
 
      
     
 
 
-const request = require('request');
+// const request = require('request');
 
-const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
-const characterId = 18; // Wedge Antilles
+// const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
+// const characterId = 18; // Wedge Antilles
 
-request(apiUrl, (error, response, body) => {
-  if (error) {
-    console.error('Error fetching data:', error.message);
-    return;
-  }
+// request(apiUrl, (error, response, body) => {
+//   if (error) {
+//     console.error('Error fetching data:', error.message);
+//     return;
+//   }
 
-  const films = JSON.parse(body).results;
-  const wedgeMovies = films.filter((film) =>
-    film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
-  );
+//   const films = JSON.parse(body).results;
+//   const wedgeMovies = films.filter((film) =>
+//     film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
+//   );
 
-  console.log(`${wedgeMovies.length}`);
-});
+//   console.log(`${wedgeMovies.length}`);
+// });
 
 // Write a script that prints the number of movies where the character “Wedge Antilles” is present.
 
