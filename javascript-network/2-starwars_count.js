@@ -24,28 +24,6 @@ request(apiUrl, (error, response, body) => {
      });
 
      
-    
-
-
-// const request = require('request');
-
-// const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
-// const characterId = 18; // Wedge Antilles
-
-// request(apiUrl, (error, response, body) => {
-//   if (error) {
-//     console.error('Error fetching data:', error.message);
-//     return;
-//   }
-
-//   const films = JSON.parse(body).results;
-//   const wedgeMovies = films.filter((film) =>
-//     film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
-//   );
-
-//   console.log(`${wedgeMovies.length}`);
-// });
-
 // Write a script that prints the number of movies where the character “Wedge Antilles” is present.
 
 // The first argument is the API URL of the Star wars API: https://swapi-api.alx-tools.com/api/films/
