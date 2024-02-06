@@ -4,7 +4,7 @@ const fs = require('fs'); //importing the file system module
 
 
 const urlToFetch = process.argv[2]; 
-const filePath = 'output.html'; 
+const filePath = process.argv[3]
 
 if (!urlToFetch) {
     console.error('Usage: node fetch-and-save.js <URL>');
@@ -20,5 +20,5 @@ if (!urlToFetch) {
   
     // Write the response body to the file
     fs.writeFileSync(filePath, body, 'utf-8');
-    console.log(`Content saved to ${filePath}`);
+    console.log(`${filePath}`);
   });
