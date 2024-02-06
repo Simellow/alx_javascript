@@ -6,8 +6,8 @@ const fs = require('fs');
 
 const url = process.argv[2];
 
-const FileName = process.argv[3];
+const fileName = process.argv[3];
 
 request
   .get(url)
-  .pipe(fs.createWriteStream(FileName));
+  .pipe(fs.createWriteStream(fileName));
