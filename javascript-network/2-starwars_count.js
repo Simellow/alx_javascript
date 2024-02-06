@@ -43,7 +43,7 @@ request(apiUrl, (error, response, body) => {
     film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
   );
 
-  console.log(`Number of movies with Wedge Antilles: ${wedgeMovies.length}`);
+  console.log(`${wedgeMovies.length}`);
 });
 
 // Write a script that prints the number of movies where the character “Wedge Antilles” is present.
