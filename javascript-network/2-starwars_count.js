@@ -5,10 +5,10 @@ const url = process.argv[2];
 
 const id = 18;
 
-request.get(url, function (err, response, body) {
+request.get(url, function (error, response, body) {
   let count = 0;
-  if (err) {
-    console.log(err);
+  if (error) {
+    console.error(error.message);
   }
   const data = JSON.parse(body);
   for (let i = 0; data.results[i] !== undefined; i++) {
