@@ -6,10 +6,10 @@ const fs = require('fs'); //importing the file system module
 const urlToFetch = process.argv[2]; 
 const filePath = process.argv[3]
 
-if (!urlToFetch) {
-    console.error('Usage: node fetch-and-save.js <URL>');
-    process.exit(1);
-  }
+// if (!urlToFetch) {
+//     console.error('Usage: node fetch-and-save.js <URL>');
+//     process.exit(1);
+//   }
   
   // Make the request to fetch the content
   request(urlToFetch, (error, response, body) => {
