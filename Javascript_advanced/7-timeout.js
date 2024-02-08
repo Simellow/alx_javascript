@@ -8,7 +8,7 @@ setTimeout(function() {
 
 // Using a loop that iterates 100 times, each iteration logs to the console the iteration number
 for (let i = 1; i <= 100; i++) {
-  console.log(`Iteration ${i}`);
+  console.log(`${i}`);
 }
 
 // Logging to the console End of the loop printing
