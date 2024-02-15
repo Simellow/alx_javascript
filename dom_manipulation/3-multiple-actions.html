@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creating and Removing Elements</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+  const container = document.getElementById("container");
+  const newPar = document.createElement("p");
+  newPar.textContent = "New paragraph";
+  container.appendChild(newPar);
+  
+  const button = document.createElement("button");
+  button.textContent = "Toggle Button";
+  container.appendChild(button);
+  
+  let visible = true;
+  button.addEventListener("click", () => {
+    visible = !visible;
+    newPar.style.display = visible ? "block" : "none";
+});
+  </script>
+</body>
+</html>
