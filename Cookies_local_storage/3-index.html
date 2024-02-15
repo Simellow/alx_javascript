@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .login {
+            display: flex;
+         }
+         .mar {
+            margin: 5px;
+         }
+         #button1 {
+            border-radius: 5px;
+            border-color: lightgrey;
+         }
+         #button2 {
+            border-radius: 5px;
+            border-color: lightgray;
+         }
+
+    </style>
+</head>
+<!-- has an onload function display here -->
+<body>
+
+    <!-- Welcome message (hidden by default) -->
+    <div id="welcome" style="display: none;">
+        <h2>Welcome to our website!</h2>
+    </div>
+
+    <form>
+        <h1>Login to the website</h1>
+        <!-- add a display none here later -->
+        <div class="login_form" style="display:none;">
+            <label for="firstname"></label>
+            <input class="mar" type="text" id="firstname" name="fname" placeholder="First name">
+            <label for="email"></label>
+            <input class="mar" type="text" id="email" name="email" placeholder="Email">
+            <button class="mar" id="button1" onclick="setCookies()">Log me in</button>
+        </div>
+    </form>
+        <script>
+            //function for showing log in form
+            function showForm (){
+                const welcomeMessage = document.getElementById("welcome");
+                welcomeMessage.style.display = "none";
+
+                const loginForm = document.getElementsByClassName("login_form");
+                loginForm.style.display = "block";
+            }
+            
+            //function to hide login from
+            function hideForm(){
+                const loginForm = document.getElementsByClassName("login_form");
+                loginForm.style.display = "none";
+            }
+            function deleteCookiesAndShowForm() {
+                // using a past date to automatically delete the cookies
+                document.cookie = "firstname=; expires=Thu, 20 Sep 1998 00:00:00 GMT;";
+                document.cookie = "email=; expires=Thu, 20 Sep 1998 00:00:00 GMT;";
+                showForm();
+            }
+            
+            //function to show the welcome message or login form
+            function showWelcomeMessageOrForm() {
+            const firstName = getCookie("firstname");
+            if (firstName) {
+                // User is logged in
+                document.body.innerHTML = `<h1>Welcome: ${firstName} <a href="#" onclick="deleteCookiesAndShowForm()"> (logout)</a></h1>`;
+            } else {
+                // User is not logged in
+                showForm();
+            }}
+        
+            // Set cookies
+            function setCookies() {
+                const firstName = document.getElementById("firstname").value;
+                const email = document.getElementById("email").value;
+                
+                // expiration date (10 days from now)
+                const expirationDate = new Date();
+                expirationDate.setDate(expirationDate.getDate() + 10);
+                
+                // Set cookies with the updated expiration date
+                document.cookie = `firstname=${firstName}; expires=${expirationDate.toUTCString()}`;
+                document.cookie = `email=${email}; expires=${expirationDate.toUTCString()}`;
+            }
+            
+            // modified function to show cookies
+            function showCookies() {
+                const emailValue = getCookie('email');
+                const firstNameValue = getCookie('firstname');
+                const cookieParagraph = document.createElement("p");
+                cookieParagraph.innerHTML = `Email: ${emailValue} - Firstname: ${firstNameValue}`;document.body.appendChild(cookieParagraph);
+            }
+            //function get cookie
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return '';
+            }
+        </script>
+

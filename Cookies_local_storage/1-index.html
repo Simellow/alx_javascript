@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .login {
+            display: flex;
+         }
+         .mar {
+            margin: 5px;
+         }
+         #button1 {
+            border-radius: 5px;
+            border-color: lightgrey;
+         }
+         #button2 {
+            border-radius: 5px;
+            border-color: lightgray;
+         }
+
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Login to the website</h1>
+        <div class="login">
+            <label for="firstname"></label>
+            <input class="mar" type="text" id="firstname" name="fname" placeholder="First name">
+            <label for="email"></label>
+            <input class="mar" type="text" id="email" name="email" placeholder="Email">
+            <button class="mar" id="button1" onclick="setCookies()">Log me in</button>
+        </div>
+        <h1>Cookies</h1>
+        <button id="button2" type="button" onclick="showCookies()">Show the cookies</button>
+    
+    </form>
+    <script>
+        // Set cookies
+        function setCookies() {
+            const firstName = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+
+            // expiration date (10 days from now)
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 10);
+
+            // Set cookies with the updated expiration date
+            document.cookie = `firstname=${firstName}; expires=${expirationDate.toUTCString()}`;
+            document.cookie = `email=${email}; expires=${expirationDate.toUTCString()}`;
+        }
+
+        // Function to show cookies
+        function showCookies() {
+            const cookies = document.cookie.split("; ");
+            const cookieParagraph = document.createElement("p");
+            cookieParagraph.innerHTML = "Cookies: ";
+            
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split("=");
+                cookieParagraph.innerHTML += `${name}=${value} `;
+            }
+
+            document.body.appendChild(cookieParagraph);
+        }
+    </script>
+</body>
+</html>
