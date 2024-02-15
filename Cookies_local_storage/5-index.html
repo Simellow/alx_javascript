@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <!-- body to be appended -->
+
+    <!-- Javascript -->
+    <script>
+        //creating array of available items
+        const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+        
+        //if local storage is not enabled display an alert message 
+        //localStorage is a property that allows JavaScript sites and apps to save key-value pairs in a web browser with no expiration date.
+        if (!window.localStorage) {
+            alert('Sorry, your browser does not support Web storage. Try again with a better one.');
+        };
+        //If localStorage is available, the code continues executing without any explicit action to enable it
+
+        function addItemToCart (item) {
+            localStorage.setItem(item, true)
+        };
+
+        function createStore() {
+            const ul = document.createElement('ul');
+            document.body.appendChild(ul);//Create a <ul> element.
+            
+            //Loop through the availableItems array and create a list item for each product
+            availableItems.forEach(item => {//
+                const li = document.createElement('li');
+                li.textContent = item;
+                li.addEventListener('click', () => addItemToCart(item));
+                ul.appendChild(li);
+            });
+        }
+
+        // a function to check how many items are in the cart
+        function displayCart() {
+            const cartSize = Object.keys(localStorage).length;
+            if (cartSize > 0) {
+                const message = `You previously had ${cartSize} item${cartSize > 1 ? 's' : ''} in your cart.`;
+                const p = document.createElement('p');
+                p.textContent = message;
+                document.body.appendChild(p);
+            }
+        }
+        
+        createStore();
+        displayCart();
+
+    </script>
+</body>
+</html>

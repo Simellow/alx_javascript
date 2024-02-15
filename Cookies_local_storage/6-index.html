@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <!-- body to be appended -->
+
+    <!-- Javascript -->
+    <script>
+        //creating array of available items
+        const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+        
+
+        function addItemToCart (item) {
+            sessionStorage.setItem(item, true)
+        };
+
+        function createStore() {
+            const ul = document.createElement('ul');
+            document.body.appendChild(ul);//Create a <ul> element.
+            
+            //Loop through the availableItems array and create a list item for each product
+            availableItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                li.addEventListener('click', () => addItemToCart(item));
+                ul.appendChild(li);
+            });
+        }
+
+        // a function to check how many items are in the cart
+        function displayCart() {
+            const cartSize = Object.keys(sessionStorage).length;
+            if (cartSize > 0) {
+                const message = `You previously had ${cartSize} items in your cart.`;
+                const p = document.createElement('p');
+                p.textContent = message;
+                document.body.appendChild(p);
+            }
+        }
+        
+        createStore();
+        displayCart();
+
+    </script>
+</body>
+</html>
